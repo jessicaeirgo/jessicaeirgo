@@ -1,3 +1,8 @@
+Array.prototype.shuffle = function(){
+return this.map((a) => ({sort: Math.random(), value: a}))
+           .sort((a, b) => a.sort - b.sort)
+           .map((a) => a.value)
+}
 const prod = (pId,pNome, pValor, pDescricao, pImg,pPagSeg)=>{
     return {
         id:pId,
@@ -54,7 +59,7 @@ const prods = ()=>{
     retorno.push(prod(25,'ACELERADOR DE PARTÍCULAS SEMI NOVO',987.65,'Usou tanto que deixou de existir o coitado!','acelerador','60877B78131351D0041FBF9706CBEF7D'));
     retorno.push(prod(26,'NOTEBOOK',2100,'Aiai notebook vc n existe msm viu','notebook','C1AA75C49999A72664F45F97FE6D6869'));
 
-    return retorno;
+    return retorno.shuffle();
 }
 var estoque = prods();
 const load = ()=>{    
@@ -64,7 +69,7 @@ const load = ()=>{
     }
 }
 const compre_baton = (id)=>{
-    let item = estoque[id];
+    let item = estoque.filter((x)=>x.id===id)[0];
     sessionStorage.setItem('produto',JSON.stringify(item));
     location.href='single-product.html';
 }
