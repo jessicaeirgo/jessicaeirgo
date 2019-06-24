@@ -72,9 +72,9 @@ const ending_credits = ()=>{
         width: 600,
         padding: '3em',
         backdrop: `
-          rgba(0,0,123,0.4)
-          url("./img/nyan-cat.gif")
-          center left
+          rgba(0,0,123,0.1)
+          url("./img/rex.gif")
+          center top
           no-repeat
         `
       })
