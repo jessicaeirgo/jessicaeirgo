@@ -92,13 +92,19 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h3 id="nome">Faded SkyBlu Denim Jeans</h3>
-						<h2 id="valor">$149.99</h2>
+						<h3 id="nome"></h3>
+						<h2 id="valor"></h2>
 						
-						<p id="descricao">Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that
-							can make your interior look awesome, and at the same time give you the pleasant warm feeling during the winter.</p>						
+						<p id="descricao"></p>						
 						<div class="card_area">
-							<a class="main_btn" href="#">Comprar</a>							
+							<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+							<form target="_blank" action="https://pagseguro.uol.com.br/checkout/v2/cart.html?action=add" method="post">
+								<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+								<input type="hidden" name="itemCode" value="" />
+								<input type="hidden" name="iot" value="button" />
+								<input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar-preto.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+								</form>
+								<!-- FINAL FORMULARIO BOTAO PAGSEGURO -->							
 							<a class="btn" href="javascript:history.back()">Voltar</a>							
 						</div>
 					</div>
@@ -342,12 +348,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<script>
 		let item = sessionStorage.getItem('produto');
-		if(item!=''){
+		if(!((item=='')||(item==undefined))){
 			item = JSON.parse(item);
 			document.getElementById('nome').innerHTML=item.nome;
 			document.getElementById('valor').innerHTML='R$'+ parseFloat(item.valor).toFixed(2);
 			document.getElementById('descricao').innerHTML=item.descricao;
 			document.getElementById('imagem').src='img/liquida/'+item.img+'.jpg';
+			document.getElementsByName('itemCode')[0].value=item.pagseg;
 		}else{
 			location.href='index.html';
 		}
