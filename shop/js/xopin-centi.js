@@ -65,4 +65,19 @@ const compre_baton = (id)=>{
     sessionStorage.setItem('produto',JSON.stringify(item));
     location.href='single-product.html';
 }
+const ending_credits = ()=>{
+    Swal.fire({
+        title: 'Bacana?',
+        html:`Pois bem, feito pelo <a href="http://paiva-thiago.github.io/" target="_blank">Thiago</a>`,
+        width: 600,
+        padding: '3em',
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("./img/nyan-cat.gif")
+          center left
+          no-repeat
+        `
+      })
+}
+
 load();
