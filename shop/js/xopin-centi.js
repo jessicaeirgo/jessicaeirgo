@@ -18,10 +18,10 @@ const html  = (item)=>{
     return  `
         <div class="col col1">
             <div class="f_p_item">
-            <div class="f_p_img">
-                <img class="img-fluid" src="img/liquida/${item.img}.jpg" alt="${item.descricao}" style="width:300px; height:350px; object-fit: cover;">								
-            </div>
             <a href="javascript:compre_baton(${item.id})">
+                <div class="f_p_img">
+                    <img class="img-fluid" src="img/liquida/${item.img}.jpg" alt="${item.descricao}" style="width:300px; height:350px; object-fit: cover;">								
+                </div>            
                 <h4>${item.nome}</h4>
             </a>
             <h5>R$${vl}</h5>
